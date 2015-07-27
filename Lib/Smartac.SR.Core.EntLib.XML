@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Smartac.SR.Core.EntLib</name>
+    </assembly>
+    <members>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.AutoInterception">
+            <summary>
+            A <see cref="T:Microsoft.Practices.Unity.UnityContainerExtension" /> for automatic interception.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.AutoInterception.RegisterDefaultInterceptor(Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor)">
+            <summary>
+            Registers the default interceptor.
+            </summary>
+            <param name="interceptor">The interceptor.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.AutoInterception.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.AutoInterceptionStrategy">
+            <summary>
+            This <see cref="T:Microsoft.Practices.ObjectBuilder2.BuilderStrategy" /> is used to automatically register interceptor.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.AutoInterceptionStrategy.PreBuildUp(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            Pres the build up.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext" />.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.AutoInterceptionStrategy.CanIntercept(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            Determines whether this instance can intercept the specified context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>
+              <c>true</c> if this instance can intercept the specified context; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.AutoInterceptionStrategy.FindInterceptionPolicy``1(Microsoft.Practices.ObjectBuilder2.IBuilderContext,System.Boolean)">
+            <summary>
+            Get current instance's InterceptionPolicy
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="probeOriginalKey"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.AutoInterceptorPolicy.Interceptor">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor" />.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.FixedAutoInterceptorPolicy.#ctor(Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor)">
+            <summary>
+            
+            </summary>
+            <param name="interceptor"></param>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.FixedAutoInterceptorPolicy.Interceptor">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor" />.
+            </summary>
+        </member>
+        <member name="F:Smartac.SR.Core.EntLib.IoC.ResolvedAutoInterceptorPolicy.InterceptorResolver">
+            <summary>
+            A delegate to resove the <see cref="T:Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor" /> based on the given <see cref="T:Microsoft.Practices.ObjectBuilder2.NamedTypeBuildKey" />.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ResolvedAutoInterceptorPolicy.#ctor(System.Func{Microsoft.Practices.ObjectBuilder2.NamedTypeBuildKey,Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor},Microsoft.Practices.ObjectBuilder2.NamedTypeBuildKey)">
+            <summary>
+            
+            </summary>
+            <param name="interceptorResolver"></param>
+            <param name="buildKey"></param>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.ResolvedAutoInterceptorPolicy.BuildKey">
+            <summary>
+            Gets the build key.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.ResolvedAutoInterceptorPolicy.Interceptor">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.Unity.InterceptionExtension.IInstanceInterceptor" />.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptionConfigurationExtension.AddExtensions(Microsoft.Practices.Unity.Configuration.SectionExtensionContext)">
+            <summary>
+            Adds the extensions.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptionElement">
+            <summary>
+            The <see cref="T:Microsoft.Practices.Unity.Configuration.ContainerConfiguringElement" /> for automatic interception extension.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptionElement.ConfigureContainer(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Configures the container.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptionElement.Interceptor">
+            <summary>
+            Gets or sets the interceptor.
+            </summary>
+            <value>
+            The interceptor.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptorElement">
+            <summary>
+            The interceptor based configuration element.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptorElement.Injection">
+            <summary>
+            Gets the injection.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.Configuration.AutoInterceptorElement.TypeName">
+            <summary>
+            Gets or sets the name of the type.
+            </summary>
+            <value>
+            The name of the type.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase">
+            <summary>
+                All of concrete service locator classes should be derived from this abstract class.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetService(System.Type,System.String)">
+            <summary>
+                Gets the service based on the specified registered type and optional registration name.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="name">The service type registration name.</param>
+            <returns>
+                The service instance activated.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetAllServices(System.Type)">
+            <summary>
+                Gets all services based on the specified registered type.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                The list of acticated service instances.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetAllKeys(System.Type)">
+            <summary>
+                Gets all keys (service type registrtion name) for the specified registered type.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                The key list.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.IsRegistered(System.Type)">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.IsRegistered(System.Type,System.Type)">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="mappedToType">The concrete type to which the registered type is mapped.</param>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.IsRegistered``1">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <typeparam name="T">The service type registered.</typeparam>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.Register(System.Type,System.Type,System.String,System.Boolean,Smartac.SR.Core.IoC.Lifetime)">
+            <summary>
+                Perform service type registration.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="mappedToType">The concrete type to which the registered type is mapped.</param>
+            <param name="name">The service type registration name.</param>
+            <param name="isDefault">if set to <c>true</c> [is default].</param>
+            <param name="lifetime">The lifetime.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.Register``1(System.Func{``0},System.String,System.Boolean,Smartac.SR.Core.IoC.Lifetime)">
+            <summary>
+                Perform service type registration.
+            </summary>
+            <typeparam name="T">The service type registered.</typeparam>
+            <param name="creator">The delegate to create the service instance.</param>
+            <param name="name">The service type registration name.</param>
+            <param name="isDefault">A bool value indicating whether it is a default service registration.</param>
+            <param name="lifetime">The lifetime.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetService``1(System.String)">
+            <summary>
+                Gets the service based on the specified registered type and optional registration name.
+            </summary>
+            <typeparam name="T">The service type registered.</typeparam>
+            <param name="name">The service type registration name.</param>
+            <returns>
+                The service instance activated.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetAllServices``1">
+            <summary>
+                Gets all services based on the specified registered type.
+            </summary>
+            <typeparam name="T">The service type registered.</typeparam>
+            <returns>
+                The list of activated service instance.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.Register``2(System.String,System.Boolean,Smartac.SR.Core.IoC.Lifetime)">
+            <summary>
+                Perform service type registration.
+            </summary>
+            <typeparam name="TFrom">The service type registered.</typeparam>
+            <typeparam name="TTo">The concrete type to which the registered type is mapped.</typeparam>
+            <param name="name">The service type registration name.</param>
+            <param name="isDefault">if set to <c>true</c> [is default].</param>
+            <param name="lifetime">The lifetime.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.GetAllKeys``1">
+            <summary>
+                Gets all keys.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>
+                The key list.
+            </returns>
+            Gets all keys (service type registrtion name) for the specified registered type.
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.ServiceLocatorBase.IsRegistered``2">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <typeparam name="TFrom">The service type registered.</typeparam>
+            <typeparam name="TTo">The concrete type to which the registered type is mapped.</typeparam>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.Configuration.UnityContainerServiceLocatorData">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.Configuration.UnityContainerServiceLocatorData.CreateServiceLocator">
+            <summary>
+                Creates the service locator.
+            </summary>
+            <returns>
+                The created service locator.
+            </returns>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.Configuration.UnityContainerServiceLocatorData.ContainerName">
+            <summary>
+                Gets or sets the name of the container.
+            </summary>
+            <value>
+                The name of the container.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator">
+            <summary>
+                The unity based service locator.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.#ctor(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            </summary>
+            <param name="unityContainer"></param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.GetService(System.Type,System.String)">
+            <summary>
+                Gets the service based on the specified registered type and optional registration name.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="name">The service type registration name.</param>
+            <returns>
+                The service instance activated.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.GetAllServices(System.Type)">
+            <summary>
+                Gets all services based on the specified registered type.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                The list of acticated service instances.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.GetAllKeys(System.Type)">
+            <summary>
+                Gets all keys (service type registrtion name) for the specified registered type.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                The key list.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.IsRegistered(System.Type)">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.IsRegistered(System.Type,System.Type)">
+            <summary>
+                Determines whether the specified registered type is registered.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="mappedToType">The concrete type to which the registered type is mapped.</param>
+            <returns>
+                <c>true</c> if the specified registered type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.Register(System.Type,System.Type,System.String,System.Boolean,Smartac.SR.Core.IoC.Lifetime)">
+            <summary>
+                Perform service type registration.
+            </summary>
+            <param name="registeredType">The service type registered.</param>
+            <param name="mappedToType">The concrete type to which the registered type is mapped.</param>
+            <param name="name">The service type registration name.</param>
+            <param name="isDefault">if set to <c>true</c> [is default].</param>
+            <param name="lifetime">The lifetime.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.Register``1(System.Func{``0},System.String,System.Boolean,Smartac.SR.Core.IoC.Lifetime)">
+            <summary>
+                Registers the specified new expression.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="creator">The new expression.</param>
+            <param name="name">The name.</param>
+            <param name="isDefault">if set to <c>true</c> [is default].</param>
+            <param name="lifetime">The lifetime.</param>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.IoC.UnityContainerServiceLocator.UnityContainer">
+            <summary>
+                Gets the unity container.
+            </summary>
+            <value>
+                The unity container.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.Properties.Resources.ExceptionConfigurationLoadFileNotFound">
+            <summary>
+              Looks up a localized string similar to  ExceptionConfigurationLoadFileNotFound=The configuration file {0} could not be found..
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.Properties.Resources.ExceptionOnlyInstanceInterceptorBeSupported">
+            <summary>
+              Looks up a localized string similar to Auto-Interception only support instance interceptor..
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.Properties.Resources.ExceptionUnityConainerNotExists">
+            <summary>
+              Looks up a localized string similar to The unity container &quot;{0}&quot; specified does not exist..
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.ConfigurationFileSettingSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Smartac.SR.Core.SettingSource.ConfigurationFileSettingSource" /> class.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.ConfigurationFileSettingSource.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Smartac.SR.Core.SettingSource.ConfigurationFileSettingSource" /> class.
+            </summary>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.ConfigurationFileSettingSource.GetConfigurationSection(System.String)">
+            <summary>
+            Gets the configuration section based on specified section name.
+            </summary>
+            <param name="sectionName">Name of the section.</param>
+            <returns>
+            The target configuration section.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.ConfigurationFileSettingSource.SetAsCurrentSettingsSource">
+            <summary>
+            Sets as current settings source.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.SettingSource.ConfigurationFileSettingSource.ConfigurationSource">
+            <summary>
+            Gets the configuration source.
+            </summary>
+            <value>
+            The configuration source.
+            </value>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.Configuration.ConfigurationFileSettingSourceData.CreateSettingSource">
+            <summary>
+            Creates the setting source.
+            </summary>
+            <returns>
+            The created setting source.
+            </returns>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.SettingSource.Configuration.ConfigurationFileSettingSourceData.FilePath">
+            <summary>
+            Gets or sets the file path.
+            </summary>
+            <value>
+            The file path.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.SettingSource.Configuration.SimpleFileSettingSourceData">
+            <summary>
+                The simple configuration file based setting source.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.Configuration.SimpleFileSettingSourceData.CreateSettingSource">
+            <summary>
+                Creates the setting source.
+            </summary>
+            <returns>
+                The created setting source.
+            </returns>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.SettingSource.Configuration.SimpleFileSettingSourceData.FilePath">
+            <summary>
+                Gets or sets the file path.
+            </summary>
+            <value>
+                The file path.
+            </value>
+        </member>
+        <member name="T:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource">
+            <summary>
+                A simple file based Setting Source.
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configurationFilePath"></param>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.GetConfigurationSection(System.String)">
+            <summary>
+                Gets the configuration section based on specified section name.
+            </summary>
+            <param name="sectionName">Name of the section.</param>
+            <returns>
+                The target configuration section.
+            </returns>
+        </member>
+        <member name="M:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.SetAsCurrentSettingsSource">
+            <summary>
+                Sets as current settings source.
+            </summary>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.Configuration">
+            <summary>
+                Gets the configuration.
+            </summary>
+            <value>
+                The configuration.
+            </value>
+        </member>
+        <member name="P:Smartac.SR.Core.EntLib.SettingSource.SimpleFileSettingSource.ConfigurationFilePath">
+            <summary>
+                Gets the configuration file path.
+            </summary>
+            <value>
+                The configuration file path.
+            </value>
+        </member>
+    </members>
+</doc>
